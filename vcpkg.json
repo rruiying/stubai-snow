@@ -2,5 +2,8 @@
     "name": "stubai-snow",
     "version-string": "0.1.0",
     "description": "A simple snowy day redering of Stubai Gletscher Gamsgarten Bergstation",
-    "dependencies": []
+    "dependencies": [
+        "glfw3",
+        "glad"
+    ]
 }

@@ -15,6 +15,22 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_package(glfw3 CONFIG REQUIRED)
+find_package(glad CONFIG REQUIRED)
+
 add_executable(stubai_snow
     src/app/main.cpp
+    src/core/Window.cpp
 )
+
+target_link_libraries(stubai_snow
+    PRIVATE
+        glfw
+        glad::glad
+)
+
+target_include_directories(stubai_snow
+    PRIVATE
+        ${CMAKE_SOURCE_DIR}/src
+)
+
