@@ -17,10 +17,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
 
 add_executable(stubai_snow
     src/app/main.cpp
     src/core/Window.cpp
+    src/core/Logger.cpp
+    src/core/Time.cpp
+    src/core/Input.cpp
     src/gfx/GLContext.cpp
 )
 
@@ -28,6 +33,8 @@ target_link_libraries(stubai_snow
     PRIVATE
         glfw
         glad::glad
+        spdlog::spdlog
+        fmt::fmt
 )
 
 target_include_directories(stubai_snow
