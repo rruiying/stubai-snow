@@ -28,6 +28,9 @@ namespace stubai::core {
 
             [[nodiscard]] std::uint32_t width() const noexcept {return width_;}
             [[nodiscard]] std::uint32_t height() const noexcept {return height_;}
+            [[nodiscard]] float aspect() const noexcept {
+                return static_cast<float>(width_) / static_cast<float>(height_);
+            }
             [[nodiscard]] GLFWwindow* handle() const noexcept {return handle_;}
 
         private:

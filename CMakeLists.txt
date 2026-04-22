@@ -19,6 +19,7 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 
 add_executable(stubai_snow
     src/app/main.cpp
@@ -27,6 +28,8 @@ add_executable(stubai_snow
     src/core/Time.cpp
     src/core/Input.cpp
     src/gfx/GLContext.cpp
+    src/gfx/Shader.cpp
+    src/scene/Camera.cpp
 )
 
 target_link_libraries(stubai_snow
@@ -35,10 +38,19 @@ target_link_libraries(stubai_snow
         glad::glad
         spdlog::spdlog
         fmt::fmt
+        glm::glm
 )
 
 target_include_directories(stubai_snow
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+)
+
+target_compile_definitions(stubai_snow
+    PRIVATE
+        STUBAI_ASSETS_DIR="${CMAKE_SOURCE_DIR}/assets"
+        GLM_FORCE_RADIANS
+        GLM_FORCE_DEPTH_ZERO_TO_ONE
+        GLM_ENABLE_EXPERIMENTAL
 )
 
