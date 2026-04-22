@@ -21,6 +21,7 @@ find_package(glad CONFIG REQUIRED)
 add_executable(stubai_snow
     src/app/main.cpp
     src/core/Window.cpp
+    src/gfx/GLContext.cpp
 )
 
 target_link_libraries(stubai_snow
